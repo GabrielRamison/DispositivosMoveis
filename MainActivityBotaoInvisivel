@@ -1,0 +1,89 @@
+package com.example.aula17;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button buttonA;
+
+    private Button buttonB;
+
+    private Button buttonC;
+
+    private Button buttonD;
+
+    private Button buttonE;
+    private TextView textViewSaida;
+
+    int a = 0;
+
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        buttonA = findViewById(R.id.buttonA);
+        buttonB = findViewById(R.id.buttonB);
+        buttonC = findViewById(R.id.buttonC);
+        buttonD = findViewById(R.id.buttonD);
+        buttonE = findViewById(R.id.buttonE);
+
+        textViewSaida = findViewById(R.id.textViewSaida);
+
+    }
+
+    public void mostrarA(View view) {
+        String texto = "A letra é derivada da letra grega alpha (α)";
+        if (a == 2) {
+            a = 3;
+        } else {
+            a = 0;
+            buttonE.setVisibility(View.INVISIBLE);
+        }
+        textViewSaida.setText(texto);
+    }
+
+    public void mostrarB(View view) {
+        String texto = "B (plural bês, equivalente cirílica б, equivalente grega β, equivalente hebraica ב)";
+        if (a == 1) {
+            a = 2;
+        } else {
+            a = 0;
+            buttonE.setVisibility(View.INVISIBLE);
+        }
+
+        textViewSaida.setText(texto);
+    }
+
+    public void mostrarC(View view) {
+        String texto = "C vem da mesma letra que G";
+        if (a == 3) {
+            buttonE.setVisibility(View.VISIBLE);
+        } else {
+            a = 0;
+            buttonE.setVisibility(View.INVISIBLE);
+        }
+        textViewSaida.setText(texto);
+    }
+
+    public void mostrarD(View view) {
+        String texto = "A letra D tem sua origem na escrita hierática egípcia";
+        a = 1;
+
+
+        textViewSaida.setText(texto);
+    }
+
+    public void mostrarE(View view) {
+        textViewSaida.setText("E de elefante");
+
+    }
+}
